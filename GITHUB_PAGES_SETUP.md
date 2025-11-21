@@ -1,0 +1,61 @@
+# GitHub Pages Deployment Instructions
+
+## Setup Steps
+
+To enable GitHub Pages for this repository and make the TORQUE dashboard accessible via browser:
+
+### 1. Enable GitHub Pages in Repository Settings
+
+1. Go to your repository on GitHub: https://github.com/swolem12/SMORQUE
+2. Click on **Settings** (top right)
+3. In the left sidebar, click on **Pages**
+4. Under "Build and deployment":
+   - **Source**: Select "GitHub Actions"
+5. Save the settings
+
+### 2. Merge the PR
+
+Once this pull request is merged to the `main` branch, the GitHub Actions workflow will automatically:
+- Build the application
+- Deploy it to GitHub Pages
+
+### 3. Access the Dashboard
+
+After the workflow completes (usually 1-2 minutes), the dashboard will be available at:
+
+**🚀 https://swolem12.github.io/SMORQUE/**
+
+## Manual Deployment
+
+If you need to trigger a deployment manually:
+
+1. Go to the **Actions** tab in your repository
+2. Select the "Deploy to GitHub Pages" workflow
+3. Click "Run workflow"
+4. Select the branch (main) and click "Run workflow"
+
+## Configuration Details
+
+- **Base Path**: `/SMORQUE/` (configured in `vite.config.ts`)
+- **Build Output**: `dist/` directory
+- **Workflow File**: `.github/workflows/deploy.yml`
+- **Trigger**: Automatic on push to main branch, or manual via workflow_dispatch
+
+## Troubleshooting
+
+If the deployment fails:
+1. Check the Actions tab for error messages
+2. Ensure GitHub Pages is enabled in repository settings
+3. Verify the workflow has proper permissions (contents: read, pages: write, id-token: write)
+4. Check that the build completes successfully locally with `npm run build`
+
+## Local Preview
+
+To preview the production build locally before deploying:
+
+```bash
+npm run build
+npm run preview
+```
+
+This will serve the built files at http://localhost:4173 with the same base path configuration.
