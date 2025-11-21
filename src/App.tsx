@@ -17,7 +17,7 @@ function App() {
   const unreadAlerts = alerts.filter(a => !a.acknowledged).length;
 
   return (
-    <Router>
+    <Router basename="/SMORQUE">
       <Layout unreadAlerts={unreadAlerts}>
         <Routes>
           <Route path="/" element={<Dashboard />} />
