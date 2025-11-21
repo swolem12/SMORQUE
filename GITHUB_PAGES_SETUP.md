@@ -1,25 +1,15 @@
 # GitHub Pages Deployment Instructions
 
-## Setup Steps
+## Automatic Setup
 
-To enable GitHub Pages for this repository and make the TORQUE dashboard accessible via browser:
-
-### 1. Enable GitHub Pages in Repository Settings
-
-1. Go to your repository on GitHub: https://github.com/swolem12/SMORQUE
-2. Click on **Settings** (top right)
-3. In the left sidebar, click on **Pages**
-4. Under "Build and deployment":
-   - **Source**: Select "GitHub Actions"
-5. Save the settings
-
-### 2. Merge the PR
-
-Once this pull request is merged to the `main` branch, the GitHub Actions workflow will automatically:
+The GitHub Pages deployment is fully automated! When changes are merged to the `main` branch, the GitHub Actions workflow will automatically:
+- Enable GitHub Pages (if not already enabled)
 - Build the application
 - Deploy it to GitHub Pages
 
-### 3. Access the Dashboard
+No manual configuration is required in repository settings - the workflow handles everything automatically using the `enablement: true` parameter in the `actions/configure-pages` step.
+
+## Accessing the Dashboard
 
 After the workflow completes (usually 1-2 minutes), the dashboard will be available at:
 
@@ -45,9 +35,9 @@ If you need to trigger a deployment manually:
 
 If the deployment fails:
 1. Check the Actions tab for error messages
-2. Ensure GitHub Pages is enabled in repository settings
-3. Verify the workflow has proper permissions (contents: read, pages: write, id-token: write)
-4. Check that the build completes successfully locally with `npm run build`
+2. Verify the workflow has proper permissions (contents: read, pages: write, id-token: write)
+3. Check that the build completes successfully locally with `npm run build`
+4. If Pages enablement fails, you can manually enable it in Settings > Pages and set source to "GitHub Actions"
 
 ## Local Preview
 
