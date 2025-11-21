@@ -120,5 +120,5 @@ export interface DashboardWidget {
     w: number;
     h: number;
   };
-  data: any;
+  data: unknown;
 }
