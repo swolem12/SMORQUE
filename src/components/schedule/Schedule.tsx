@@ -1,6 +1,6 @@
 import { Card } from '../common/Card';
 import { scheduleEvents as initialEvents, importedReports, optimizationSettings } from '../../data/mockData';
-import { showSuccess, showError, showWarning } from '../../utils/toast';
+import { showSuccess, showError } from '../../utils/toast';
 import { exportScheduleToExcel } from '../../utils/excelExport';
 import './Schedule.css';
 import Checkerboard from './Checkerboard';
@@ -71,7 +71,7 @@ export const Schedule = () => {
   const eventStats = {
     total: events.length,
     maintenance: events.filter(e => e.type === 'maintenance').length,
-    operations: events.filter(e => e.type === 'operations').length,
+    operations: events.filter(e => e.type === 'operation').length, // fixed type string
     pending: events.filter(e => e.approvalStatus === 'pending').length,
     approved: events.filter(e => e.approvalStatus === 'approved').length,
   };
@@ -124,9 +124,9 @@ export const Schedule = () => {
             </button>
             {showOptimization && (
               <div style={{ marginTop: '1rem', fontSize: '0.875rem' }}>
-                <p>Min Gap: {optimizationSettings.minTimeBetweenEvents}h</p>
-                <p>Max Events: {optimizationSettings.maxEventsPerDay}</p>
-                <p>Priority: {optimizationSettings.priorityWeights.maintenance.toFixed(1)}</p>
+                <p>Window: {optimizationSettings.windowStart.toLocaleDateString()} - {optimizationSettings.windowEnd.toLocaleDateString()}</p>
+                <p>Priority Rules: {optimizationSettings.priorityRules.join(', ')}</p>
+                <p>Allow Overlaps: {optimizationSettings.allowOverlaps ? 'Yes' : 'No'}</p>
                 <button onClick={handleOptimize} className="action-button primary" style={{ marginTop: '0.5rem', width: '100%' }}>
                   Run Optimization
                 </button>
