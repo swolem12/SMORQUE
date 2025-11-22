@@ -2,14 +2,32 @@
 
 This repository is configured to automatically deploy the USAF Torque Dashboard to GitHub Pages.
 
-## Enabling GitHub Pages
+## ⚠️ ONE-TIME SETUP REQUIRED (If Not Already Done)
 
-To enable GitHub Pages for this repository, follow these steps:
+**If you're seeing a 404 error at https://swolem12.github.io/SMORQUE/, you need to enable GitHub Pages first.**
 
-1. Go to your repository settings: `https://github.com/swolem12/SMORQUE/settings/pages`
-2. Under "Build and deployment":
-   - **Source**: Select "GitHub Actions"
-3. Save the settings
+### Steps to Enable GitHub Pages:
+
+1. **Go to your repository settings**: 
+   - Direct link: https://github.com/swolem12/SMORQUE/settings/pages
+   - Or navigate to: Repository → Settings → Pages (in left sidebar under "Code and automation")
+
+2. **Configure the source**:
+   - Under "Build and deployment"
+   - **Source**: Select **"GitHub Actions"** (NOT "Deploy from a branch")
+   - Click **Save**
+
+3. **Wait for deployment**:
+   - Go to the **Actions** tab: https://github.com/swolem12/SMORQUE/actions
+   - The workflow should automatically run and deploy the site
+   - Once it completes successfully (green checkmark), your site will be live
+   - Initial deployment may take 1-2 minutes
+
+4. **Verify**:
+   - Visit: https://swolem12.github.io/SMORQUE/
+   - You should see the TORQUE dashboard
+
+**This is a one-time setup!** After this, all future deployments will be automatic.
 
 ## Deployment
 
@@ -18,6 +36,19 @@ The dashboard will automatically deploy to GitHub Pages when:
 - The workflow is manually triggered from the Actions tab
 
 The deployed site will be available at: `https://swolem12.github.io/SMORQUE/`
+
+## Troubleshooting
+
+### Getting a 404 error?
+1. **Check if GitHub Pages is enabled**: Go to Settings > Pages and verify source is set to "GitHub Actions"
+2. **Check deployment status**: Go to Actions tab and verify at least one workflow has completed successfully
+3. **Wait a few minutes**: After the first successful deployment, it may take 1-2 minutes for the site to become available
+4. **Check the workflow logs**: If the deployment failed, check the error messages in the Actions tab
+
+### Deployment workflow is failing?
+1. Most likely cause: GitHub Pages is not enabled (see setup instructions above)
+2. Check that you have the correct permissions: contents: read, pages: write, id-token: write
+3. Verify the build works locally: `npm run build`
 
 ## Local Development
 
