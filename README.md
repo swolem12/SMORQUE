@@ -6,6 +6,8 @@ An AI sortie analytic production tool - USAF Torque Dashboard
 
 The TORQUE sortie analytics dashboard is deployed and accessible via GitHub Pages.
 
+> **Note**: If you see a 404 error, GitHub Pages needs to be enabled. See [GITHUB_PAGES_SETUP.md](GITHUB_PAGES_SETUP.md) for setup instructions.
+
 ## Features
 - Real-time sortie analytics and operational status
 - Mission planning and coordination
@@ -26,4 +28,6 @@ npm run preview  # Preview production build
 
 ## Deployment
 The dashboard automatically deploys to GitHub Pages when changes are pushed to the main branch via GitHub Actions.
+
+**First-time setup required**: See [GITHUB_PAGES_SETUP.md](GITHUB_PAGES_SETUP.md) for one-time manual configuration to enable GitHub Pages.
 
