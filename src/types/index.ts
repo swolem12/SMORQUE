@@ -83,6 +83,8 @@ export interface CrewMember {
   status: 'available' | 'deployed' | 'training' | 'unavailable';
   certifications: string[];
   flightHours: number;
+  qualifications: string[];
+  availability: 'available' | 'on-mission' | 'training' | 'leave';
 }
 
 export interface Alert {
@@ -122,3 +124,45 @@ export interface DashboardWidget {
   };
   data: unknown;
 }
+
+// Scheduling / Aircraft Schedule types (from Aircraft Schedule user guide)
+export interface ScheduleEvent {
+  id: string;
+  title: string;
+  aircraftTail: string;
+  aircraftId?: string;
+  startTime: Date;
+  endTime: Date;
+  durationMinutes?: number;
+  type: 'maintenance' | 'operation' | 'training' | 'flight' | 'other';
+  status: 'draft' | 'scheduled' | 'in-progress' | 'completed' | 'cancelled' | 'approved';
+  source?: ImportReportType | 'manual';
+  assignedCrew?: string[];
+  location?: string;
+  notes?: string;
+  approvalStatus?: ApprovalStatus;
+}
+
+export type ImportReportType = 'mmPairs' | 'PRA' | 'G081' | 'GTIMS' | 'PEX' | 'TMS' | 'other';
+
+export interface ImportedReport {
+  id: string;
+  type: ImportReportType;
+  filename?: string;
+  importedAt: Date;
+  rawData?: unknown;
+  parsedEvents?: ScheduleEvent[];
+}
+
+export interface OptimizationSettings {
+  windowStart: Date;
+  windowEnd: Date;
+  priorityRules: string[];
+  allowOverlaps: boolean;
+}
+
+export type ApprovalStatus = 'draft' | 'pending' | 'approved' | 'published';
+
+export type UserRole = 'ps-maintainer' | 'leadership' | 'viewer' | 'admin';
+
+export type ScheduleView = 'weekly' | 'monthly' | 'presentation';

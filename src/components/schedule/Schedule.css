@@ -1,0 +1,150 @@
+.schedule-page {
+  padding: 1rem;
+}
+
+.schedule-header .sub {
+  color: var(--color-text-secondary);
+  margin-top: 0.25rem;
+}
+
+.panel-toggle {
+  padding: 0.5rem 1rem;
+  background: var(--color-border);
+  border: 1px solid var(--color-primary);
+  border-radius: 6px;
+  color: var(--color-text);
+  cursor: pointer;
+  width: 100%;
+  transition: all 0.2s;
+  font-size: 0.875rem;
+}
+
+.panel-toggle:hover {
+  background: rgba(var(--color-primary), 0.2);
+  border-color: var(--color-primary-light);
+  box-shadow: 0 0 8px var(--color-glow);
+}
+
+.schedule-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem 0;
+  padding: 0.75rem;
+  background: var(--color-border-light);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+}
+
+.view-toggle {
+  display: flex;
+  gap: 4px;
+}
+
+.view-toggle button {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--color-border);
+  background: transparent;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.view-toggle button.active {
+  background: var(--color-border);
+  border-color: var(--color-primary);
+  color: var(--color-primary-light);
+  box-shadow: 0 0 15px var(--color-glow);
+}
+
+.week-nav {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.week-nav button {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.week-label {
+  margin-left: 12px;
+  color: var(--color-text-secondary);
+  font-size: 0.9rem;
+}
+
+.schedule-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.event-card .event-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+.notes {
+  margin-top: 0.5rem;
+  color: var(--color-muted, #c9c9c9);
+}
+
+/* Print-friendly small adjustments (placeholder) */
+@media print {
+  .schedule-page { padding: 0.5rem; }
+}
+
+.checkerboard {
+  display: flex;
+  flex-direction: column;
+}
+.checkerboard-header {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.checkerboard-day-header {
+  padding: 6px;
+  background: var(--color-border-light);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  text-align: center;
+  color: var(--color-primary-light);
+  font-weight: 600;
+}
+.checkerboard-body {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+}
+.checkerboard-column {
+  min-height: 220px;
+  background: var(--color-bg-dark);
+  border: 1px solid var(--color-border-light);
+  padding: 6px;
+  border-radius: 4px;
+}
+.cb-event {
+  background: var(--color-border-light);
+  border: 1px solid var(--color-border);
+  padding: 6px;
+  margin-bottom: 6px;
+  border-radius: 4px;
+  cursor: move;
+}
+.cb-event:hover {
+  background: var(--color-border);
+  border-color: var(--color-primary);
+}
+.cb-view { display:flex; align-items:center; justify-content:space-between }
+.cb-time { font-size: 0.85rem; color: var(--color-muted,#bfc7d9); margin-right: 8px }
+.cb-title { flex:1; padding: 0 8px }
+.cb-actions button { font-size: 0.8rem }
+.cb-edit { display: flex; flex-direction: column; gap: 4px; }
+.cb-edit label { font-size: 0.75rem; color: var(--color-text-muted); margin-top: 4px; }
+.cb-input { width: 100%; padding: 4px; background: var(--color-bg-dark); border: 1px solid var(--color-border); color: var(--color-text); border-radius: 3px; }
+.cb-edit-actions { margin-top: 6px; }
+

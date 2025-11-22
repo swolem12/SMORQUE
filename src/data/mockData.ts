@@ -6,6 +6,7 @@ import type {
   Alert, 
   AnalyticsData,
   ChartDataPoint 
+  , ScheduleEvent, ImportedReport, OptimizationSettings
 } from '../types';
 
 // Generate placeholder sorties
@@ -214,7 +215,9 @@ export const crewMembers: CrewMember[] = [
     squadron: '34th FS',
     status: 'available',
     certifications: ['F-16C', 'Air-to-Air', 'Night Operations'],
-    flightHours: 1250
+    flightHours: 1250,
+    qualifications: ['F-16C', 'IP', 'Night Ops'],
+    availability: 'available'
   },
   {
     id: 'C002',
@@ -224,7 +227,9 @@ export const crewMembers: CrewMember[] = [
     squadron: '34th FS',
     status: 'available',
     certifications: ['F-16C', 'Weapons Systems'],
-    flightHours: 650
+    flightHours: 650,
+    qualifications: ['WSO', 'F-16C'],
+    availability: 'available'
   },
   {
     id: 'C003',
@@ -234,7 +239,9 @@ export const crewMembers: CrewMember[] = [
     squadron: '34th FS',
     status: 'deployed',
     certifications: ['F-16C', 'F-15E', 'Air-to-Air', 'Air-to-Ground'],
-    flightHours: 2100
+    flightHours: 2100,
+    qualifications: ['F-16C', 'F-15E', 'IP', 'SEFE'],
+    availability: 'on-mission'
   },
   {
     id: 'C004',
@@ -244,7 +251,81 @@ export const crewMembers: CrewMember[] = [
     squadron: '335th FS',
     status: 'available',
     certifications: ['F-15E', 'F-16C', 'Instructor Pilot'],
-    flightHours: 3200
+    flightHours: 3200,
+    qualifications: ['F-15E', 'F-16C', 'IP', 'Flight Lead'],
+    availability: 'available'
+  },
+  {
+    id: 'C005',
+    name: 'Capt. Miller',
+    rank: 'Captain',
+    role: 'Weapons System Officer',
+    squadron: '335th FS',
+    status: 'training',
+    certifications: ['F-15E', 'Weapons Systems', 'Targeting'],
+    flightHours: 980,
+    qualifications: ['WSO', 'F-15E', 'Targeting'],
+    availability: 'training'
+  },
+  {
+    id: 'C006',
+    name: 'Capt. Anderson',
+    rank: 'Captain',
+    role: 'Pilot',
+    squadron: '23rd FG',
+    status: 'available',
+    certifications: ['A-10C', 'CAS', 'FAC-A'],
+    flightHours: 1580,
+    qualifications: ['A-10C', 'CAS', 'FAC-A', 'IP'],
+    availability: 'available'
+  },
+  {
+    id: 'C007',
+    name: 'Lt. Wilson',
+    rank: 'Lieutenant',
+    role: 'Pilot',
+    squadron: '23rd FG',
+    status: 'available',
+    certifications: ['A-10C', 'CAS'],
+    flightHours: 425,
+    qualifications: ['A-10C', 'CAS'],
+    availability: 'on-mission'
+  },
+  {
+    id: 'C008',
+    name: 'Maj. Taylor',
+    rank: 'Major',
+    role: 'Pilot',
+    squadron: '91st ARS',
+    status: 'available',
+    certifications: ['KC-135', 'Boom Operator', 'Air Refueling'],
+    flightHours: 2450,
+    qualifications: ['KC-135', 'AR', 'IP', 'EP'],
+    availability: 'available'
+  },
+  {
+    id: 'C009',
+    name: 'Lt. Moore',
+    rank: 'Lieutenant',
+    role: 'Co-Pilot',
+    squadron: '91st ARS',
+    status: 'available',
+    certifications: ['KC-135', 'Air Refueling'],
+    flightHours: 680,
+    qualifications: ['KC-135', 'AR'],
+    availability: 'available'
+  },
+  {
+    id: 'C010',
+    name: 'SSgt. Jackson',
+    rank: 'Staff Sergeant',
+    role: 'Boom Operator',
+    squadron: '91st ARS',
+    status: 'training',
+    certifications: ['Boom Operator', 'Air Refueling'],
+    flightHours: 340,
+    qualifications: ['Boom Operator'],
+    availability: 'training'
   }
 ];
 
@@ -310,3 +391,56 @@ export const readinessChartData: ChartDataPoint[] = [
   { date: '11/20', value: 91, label: 'Ready' },
   { date: '11/21', value: 93, label: 'Ready' }
 ];
+
+// Sample schedule events (from Aircraft Schedule user guide examples)
+export const scheduleEvents: ScheduleEvent[] = [
+  {
+    id: 'E001',
+    title: 'A-10C Deep Inspection',
+    aircraftTail: '81-0956',
+    startTime: new Date('2025-11-22T08:00:00'),
+    endTime: new Date('2025-11-22T12:00:00'),
+    durationMinutes: 240,
+    type: 'maintenance',
+    status: 'scheduled',
+    source: 'mmPairs',
+    assignedCrew: ['C004'],
+    location: 'Maintenance Hangar',
+    notes: 'Deep inspection prior to sortie operations',
+    approvalStatus: 'pending'
+  },
+  {
+    id: 'E002',
+    title: 'F-16 Training Sortie',
+    aircraftTail: '88-0002',
+    startTime: new Date('2025-11-22T09:00:00'),
+    endTime: new Date('2025-11-22T11:00:00'),
+    durationMinutes: 120,
+    type: 'training',
+    status: 'draft',
+    source: 'manual',
+    assignedCrew: ['C001','C002'],
+    location: 'Zone Bravo',
+    notes: 'Weapons system practice'
+  }
+];
+
+// Sample imported reports (stubs)
+export const importedReports: ImportedReport[] = [
+  {
+    id: 'R001',
+    type: 'mmPairs',
+    filename: 'mmPairs_sample.csv',
+    importedAt: new Date(),
+    rawData: null,
+    parsedEvents: [scheduleEvents[0]]
+  }
+];
+
+// Sample optimization settings
+export const optimizationSettings: OptimizationSettings = {
+  windowStart: new Date('2025-11-22T00:00:00'),
+  windowEnd: new Date('2025-11-29T00:00:00'),
+  priorityRules: ['minimize-ground-time','respect-maintenance-windows'],
+  allowOverlaps: false
+};
