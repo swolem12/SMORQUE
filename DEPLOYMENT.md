@@ -2,32 +2,24 @@
 
 This repository is configured to automatically deploy the USAF Torque Dashboard to GitHub Pages.
 
-## ⚠️ ONE-TIME SETUP REQUIRED (If Not Already Done)
+## ✅ Fully Automatic Deployment
 
-**If you're seeing a 404 error at https://swolem12.github.io/SMORQUE/, you need to enable GitHub Pages first.**
+**No manual setup required!** The deployment workflow automatically enables GitHub Pages on the first run.
 
-### Steps to Enable GitHub Pages:
+### How It Works
 
-1. **Go to your repository settings**: 
-   - Direct link: https://github.com/swolem12/SMORQUE/settings/pages
-   - Or navigate to: Repository → Settings → Pages (in left sidebar under "Code and automation")
+When you push changes to the `main` branch, the GitHub Actions workflow will automatically:
+1. Enable GitHub Pages (if not already enabled)
+2. Build the application
+3. Deploy it to GitHub Pages
 
-2. **Configure the source**:
-   - Under "Build and deployment"
-   - **Source**: Select **"GitHub Actions"** (NOT "Deploy from a branch")
-   - Click **Save**
+The first deployment will take a few minutes as it sets up GitHub Pages. Subsequent deployments will be faster.
 
-3. **Wait for deployment**:
-   - Go to the **Actions** tab: https://github.com/swolem12/SMORQUE/actions
-   - The workflow should automatically run and deploy the site
-   - Once it completes successfully (green checkmark), your site will be live
-   - Initial deployment may take 1-2 minutes
+### Accessing the Dashboard
 
-4. **Verify**:
-   - Visit: https://swolem12.github.io/SMORQUE/
-   - You should see the TORQUE dashboard
+After the first deployment completes, the dashboard will be available at:
 
-**This is a one-time setup!** After this, all future deployments will be automatic.
+**🚀 https://swolem12.github.io/SMORQUE/**
 
 ## Deployment
 
@@ -46,9 +38,9 @@ The deployed site will be available at: `https://swolem12.github.io/SMORQUE/`
 4. **Check the workflow logs**: If the deployment failed, check the error messages in the Actions tab
 
 ### Deployment workflow is failing?
-1. Most likely cause: GitHub Pages is not enabled (see setup instructions above)
-2. Check that you have the correct permissions: contents: read, pages: write, id-token: write
-3. Verify the build works locally: `npm run build`
+1. Check the Actions tab for error messages
+2. Verify the workflow has the correct permissions: contents: read, pages: write, id-token: write
+3. Ensure the build works locally: `npm run build`
 
 ## Local Development
 
