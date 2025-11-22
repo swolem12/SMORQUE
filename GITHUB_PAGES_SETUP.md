@@ -1,20 +1,28 @@
 # GitHub Pages Deployment Instructions
 
-## ✅ Fully Automatic Deployment
+## ✅ Automatic Deployment
 
-The deployment is **fully automated**! No manual setup is required. When changes are merged to the `main` branch, the GitHub Actions workflow will automatically:
+The deployment is **automated** after initial setup! When changes are merged to the `main` branch, the GitHub Actions workflow will automatically:
 - Build the application
 - Deploy it to GitHub Pages
 
 The workflow will run automatically on every push to the main branch.
+
+## One-Time Setup
+
+**Important**: Before the first deployment, GitHub Pages must be enabled in the repository settings:
+
+1. Go to **Settings** → **Pages** in your repository
+2. Under "Build and deployment", set **Source** to **GitHub Actions**
+3. Save the changes
+
+Once this is configured, all subsequent deployments will be automatic.
 
 ## Accessing the Dashboard
 
 After the first deployment completes (usually 1-2 minutes after merging to main), the dashboard will be available at:
 
 **🚀 https://swolem12.github.io/SMORQUE/**
-
-> **Note**: On the first deployment, the workflow will automatically enable GitHub Pages for the repository. Subsequent deployments will be faster.
 
 ## Manual Deployment
 
@@ -40,9 +48,10 @@ If you need to trigger a deployment manually:
 3. Check that the build completes successfully locally with `npm run build`
 
 ### If you get a 404 error after deployment:
-1. Wait a few minutes after the first successful deployment for the site to become available
+1. **Ensure GitHub Pages is enabled**: Go to Settings → Pages and verify source is set to "GitHub Actions"
 2. Check that the deployment workflow completed successfully in the Actions tab
-3. Verify the URL is correct: https://swolem12.github.io/SMORQUE/
+3. Wait a few minutes after the first successful deployment for the site to become available
+4. Verify the URL is correct: https://swolem12.github.io/SMORQUE/
 
 ## Local Preview
 

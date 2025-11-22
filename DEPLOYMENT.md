@@ -2,18 +2,21 @@
 
 This repository is configured to automatically deploy the USAF Torque Dashboard to GitHub Pages.
 
-## ✅ Fully Automatic Deployment
+## ✅ Automatic Deployment After Initial Setup
 
-**No manual setup required!** The deployment workflow automatically enables GitHub Pages on the first run.
+**One-time setup required**: Before the first deployment, GitHub Pages must be enabled in the repository settings:
+
+1. Go to **Settings** → **Pages** in your repository
+2. Under "Build and deployment", set **Source** to **GitHub Actions**
+3. Save the changes
 
 ### How It Works
 
-When you push changes to the `main` branch, the GitHub Actions workflow will automatically:
-1. Enable GitHub Pages (if not already enabled)
-2. Build the application
-3. Deploy it to GitHub Pages
+After the initial setup, when you push changes to the `main` branch, the GitHub Actions workflow will automatically:
+1. Build the application
+2. Deploy it to GitHub Pages
 
-The first deployment will take a few minutes as it sets up GitHub Pages. Subsequent deployments will be faster.
+The first deployment will take a few minutes. Subsequent deployments will be faster.
 
 ### Accessing the Dashboard
 
@@ -32,7 +35,7 @@ The deployed site will be available at: `https://swolem12.github.io/SMORQUE/`
 ## Troubleshooting
 
 ### Getting a 404 error?
-1. **Check if GitHub Pages is enabled**: Go to Settings > Pages and verify source is set to "GitHub Actions"
+1. **Check if GitHub Pages is enabled**: Go to Settings → Pages and verify source is set to "GitHub Actions"
 2. **Check deployment status**: Go to Actions tab and verify at least one workflow has completed successfully
 3. **Wait a few minutes**: After the first successful deployment, it may take 1-2 minutes for the site to become available
 4. **Check the workflow logs**: If the deployment failed, check the error messages in the Actions tab

@@ -27,7 +27,9 @@ npm run preview  # Preview production build
 ```
 
 ## Deployment
-The dashboard automatically deploys to GitHub Pages when changes are pushed to the main branch via GitHub Actions. No manual setup is required - the workflow automatically enables GitHub Pages on the first deployment.
+The dashboard automatically deploys to GitHub Pages when changes are pushed to the main branch via GitHub Actions. 
+
+**First-time setup**: Go to Settings → Pages and set the source to "GitHub Actions" to enable deployments.
 
 For more details, see [DEPLOYMENT.md](DEPLOYMENT.md).
 
