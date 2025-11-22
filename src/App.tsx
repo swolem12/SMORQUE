@@ -33,7 +33,7 @@ function App() {
   return (
     <ThemeProvider>
       <Toaster position="top-right" />
-      <Router basename="/SMORQUE">
+      <Router basename="/smorque">
         <Layout unreadAlerts={unreadAlerts}>
           <Routes>
             <Route path="/" element={<Dashboard />} />
