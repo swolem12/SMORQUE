@@ -1,6 +1,6 @@
 .stat-card {
-  background: rgba(30, 41, 59, 0.5);
-  border: 1px solid rgba(148, 163, 184, 0.1);
+  background: var(--color-bg-light);
+  border: 1px solid var(--color-border);
   border-radius: 12px;
   padding: 1.5rem;
   backdrop-filter: blur(10px);
@@ -20,25 +20,25 @@
 }
 
 .stat-card-blue {
-  --accent-color: #3b82f6;
+  --accent-color: var(--color-primary);
 }
 
 .stat-card-green {
-  --accent-color: #10b981;
+  --accent-color: var(--color-success);
 }
 
 .stat-card-yellow {
-  --accent-color: #f59e0b;
+  --accent-color: var(--color-warning);
 }
 
 .stat-card-red {
-  --accent-color: #ef4444;
+  --accent-color: var(--color-error);
 }
 
 .stat-card:hover {
-  border-color: rgba(148, 163, 184, 0.2);
+  border-color: var(--color-primary);
   transform: translateY(-2px);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 8px 30px var(--color-glow);
 }
 
 .stat-header {
@@ -50,7 +50,7 @@
 
 .stat-title {
   font-size: 0.875rem;
-  color: #94a3b8;
+  color: var(--color-text-muted);
   text-transform: uppercase;
   letter-spacing: 0.5px;
   font-weight: 600;
@@ -71,13 +71,13 @@
 .stat-number {
   font-size: 2.25rem;
   font-weight: 700;
-  color: #fff;
+  color: var(--color-text);
   line-height: 1;
 }
 
 .stat-unit {
   font-size: 1rem;
-  color: #94a3b8;
+  color: var(--color-text-muted);
   font-weight: 500;
 }
 
@@ -90,13 +90,13 @@
 }
 
 .stat-trend.positive {
-  color: #10b981;
+  color: var(--color-success);
 }
 
 .stat-trend.negative {
-  color: #ef4444;
+  color: var(--color-error);
 }
 
 .stat-trend.neutral {
-  color: #94a3b8;
+  color: var(--color-text-muted);
 }

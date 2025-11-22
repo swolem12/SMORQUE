@@ -13,7 +13,62 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: 'Courier New', Courier, monospace;
+  background: var(--color-bg-dark);
+  padding: 0.2rem 0.4rem;
+  border-radius: 3px;
+  color: var(--color-secondary);
+  border: 1px solid var(--color-border);
+}
+
+/* Neon Glow Headers */
+h1, h2, h3 {
+  text-shadow: 0 0 10px var(--color-glow);
+}
+
+h1 {
+  text-shadow: 0 0 20px var(--color-glow),
+               0 0 30px var(--color-glow);
+}
+
+/* Button Enhancements */
+button {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+button:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.1);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+/* Link Glow */
+a {
+  color: var(--color-primary-light);
+  transition: all 0.2s;
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--color-secondary);
+  text-shadow: 0 0 8px var(--color-glow);
+}
+
+/* Selection Color */
+::selection {
+  background: var(--color-primary);
+  color: var(--color-text);
+  text-shadow: 0 0 5px var(--color-glow);
+}
+
+/* Focus Outline */
+*:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px var(--color-border-light);
 }
 

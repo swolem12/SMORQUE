@@ -1,5 +1,4 @@
 import { Header } from './Header';
-import { Sidebar } from './Sidebar';
 import './Layout.css';
 
 interface LayoutProps {
@@ -11,12 +10,9 @@ export const Layout = ({ children, unreadAlerts }: LayoutProps) => {
   return (
     <div className="layout">
       <Header unreadAlerts={unreadAlerts} />
-      <div className="layout-body">
-        <Sidebar />
-        <main className="main-content">
-          {children}
-        </main>
-      </div>
+      <main className="main-content">
+        {children}
+      </main>
     </div>
   );
 };
